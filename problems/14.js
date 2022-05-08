@@ -7,7 +7,29 @@
  * @example [3,2,3] -> 3
 */
 function problem(numbers) {
-    return null;
+    let counts = {};
+    for (let i = 0; i < numbers.length; i++)
+    {
+        if (numbers[i] in counts)
+        {
+            counts[numbers[i]]++;
+        } 
+        else
+        {
+            counts[numbers[i]] = 1;
+        }
+    }
+    let greatest = 0;
+    let num = 0;
+    for (const key in counts)
+    {
+        if (counts[key] > greatest)
+        {
+            greatest = counts[key];
+            num = key;
+        }
+    }
+    return +num;
 }
 
 const tests = [

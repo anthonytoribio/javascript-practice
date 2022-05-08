@@ -8,7 +8,17 @@
  * @example "racecar" -> true
 */
 function problem(str) {
-    return null;
+    let s = str.trim().replaceAll(" ", "").toLowerCase();
+    let end = s.length - 1;
+    for (let start = 0; start < Math.floor(s.length/2); start++)
+    {
+        if (s[start] != s[end])
+        {
+            return false;
+        }
+        end -= 1;
+    }
+    return true;
 }
 
 const tests = [
